@@ -1,25 +1,21 @@
-const autoPreprocess = require('svelte-preprocess');
-
-const production = process.env.NODE_ENV === 'production'
+const production = process.env.NODE_ENV === "production";
 
 module.exports = {
-  preprocess: autoPreprocess({
+  preprocess: require("svelte-preprocess")({
     defaults: {
-      script: 'typescript',
+      script: "typescript",
     },
     scss: {
-      prependData: '@import "./src/scss/main.scss";'
+      prependData: '@import "./src/scss/main.scss";',
     },
     postcss: {
       plugins: [
         // Check package.json browserslist
-        require('autoprefixer')()
-      ]
+        require("autoprefixer")(),
+      ],
     },
     babel: {
-      plugins: production
-        ? ['transform-remove-console']
-        : []
-    }
-  })
+      plugins: production ? ["transform-remove-console"] : [],
+    },
+  }),
 };
