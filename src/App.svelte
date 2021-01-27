@@ -1,10 +1,11 @@
 <script lang="ts">
   import Router from "svelte-spa-router";
   import routes from "~/routes";
-  import Hello from "~/components/Hello.svelte";
+  import Header from "./components/Header.svelte";
 </script>
 
-<Hello />
+<Header />
+
 <Router {routes} />
 
 <style lang="scss">
